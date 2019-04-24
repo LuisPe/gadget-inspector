@@ -1,0 +1,32 @@
+{
+  "name": "gadget-inspector",
+  "version": "0.1.0",
+  "description": "Inspector of environment variables needed in the API developed with NodeJs when a Docker container is started",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuisPe/gadget-inspector.git"
+  },
+  "keywords": [
+    "Bunyan",
+    "Docker",
+    "Environment",
+    "Variables",
+    "process.env",
+    "NodeJs",
+    "API"
+  ],
+  "author": "LuisPe -luispedrotoloy@gmail.com-",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuisPe/gadget-inspector/issues"
+  },
+  "homepage": "https://github.com/LuisPe/gadget-inspector#readme",
+  "dependencies": {
+    "centralized-logger": "^1.0.5"
+  }
+}
