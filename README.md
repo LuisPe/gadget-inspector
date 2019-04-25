@@ -1,10 +1,10 @@
-# Inspector Gadget v0.1.0
+# Gadget Inspector v0.1.0
 
 ![ProjectFolder](/gadget.jpg)
 
 > ¿Alguna vez se encontró con un funcionamiento incorrecto cuando despliega una app en NodeJs usando Docker & docker-compose y diferentes entornos (dev, test, production)?
 
-Un posible error es la incorrecta configuración de variables de entorno en **my_api.yml**, provocando un comportamiento extraño en la app NodeJs o que ni siquiera pueda iniciarse, para prevenir este error es que se creó **gadget-inspector package** que permite hacer una validación de las variables de entorno que necesita la app NodeJs y las variables de entorno que fueron configuradas en archivo .yml, esta validación se realiza en tiempo de inicio de container o de la aplicación si está trabajando de manera local.
+Un posible error es la incorrecta configuración de variables de entorno en **my_api.yml**, provocando un comportamiento extraño en la app NodeJs o que ni siquiera pueda iniciarse, para prevenir este error es que se creó **gadget-inspector package** que permite hacer una validación de las variables de entorno que necesita nuestra app NodeJs y las variables de entorno que fueron configuradas en archivo .yml, esta validación se realiza en tiempo de inicio de container o de la aplicación si está trabajando de manera local.
 
 ## Instalación
 
@@ -39,7 +39,7 @@ exports.config = {
 
 2.
 
-También quiero que observe que las "key" de las variables son camelCase pero si son de alguna manera iguales a las variables de entorno del "value", ¿que quiero decir con esto?, que como convención no podrá tener una variable similar a esto:
+También quiero que observe que las "key" de las variables son camelCase pero son de alguna manera iguales a las variables de entorno del "value", ¿que quiero decir con esto?, que como convención no podrá tener una variable similar a esto:
 
 ```
 other: process.env.MY_OTHER_VARIABLE
@@ -64,8 +64,8 @@ Cuando inicie su aplicación debería ver el siguiente mensaje:
 
 ```
 Server listen on port: 3000
-{"name":"express-docker","hostname":"Thinkpad-580","pid":4194,"level":40,"msg":":::::: HELLO, HERE THE INSPECTOR GADGET WANTS TO TELL YOU SOME THINGS THAT HE FOUND AND MAY BE INTERESTED ::::::","time":"2019-04-24T18:24:46.318Z","v":0}
-{"name":"express-docker","hostname":"Thinkpad-580","pid":4194,"level":40,"msg":":::::: ENVIRONMENT VARIABLES CORRECTLY CONFIGURED ::::::","time":"2019-04-24T18:24:46.319Z","v":0}
+{"name":"express-docker","hostname":"Thinkpad-T570","pid":4194,"level":40,"msg":":::::: HELLO, HERE THE INSPECTOR GADGET WANTS TO TELL YOU SOME THINGS THAT HE FOUND AND MAY BE INTERESTED ::::::","time":"2019-04-24T18:24:46.318Z","v":0}
+{"name":"express-docker","hostname":"Thinkpad-T570","pid":4194,"level":40,"msg":":::::: ENVIRONMENT VARIABLES CORRECTLY CONFIGURED ::::::","time":"2019-04-24T18:24:46.319Z","v":0}
 ```
 
 > Todas las variables de entorno que necesita la app NodeJs fueron correctamente configuradas, como puede observar.
@@ -74,10 +74,10 @@ Ahora eliminemos las variables de entorno **"MISSING_VARIABLE_ONE y MISSING_VARI
 
 ```
 Server listen on port: 3000
-{"name":"express-docker","hostname":"Thinkpad-580","pid":4319,"level":40,"msg":":::::: HELLO, HERE THE INSPECTOR GADGET WANTS TO TELL YOU SOME THINGS THAT HE FOUND AND MAY BE INTERESTED ::::::","time":"2019-04-24T18:27:20.879Z","v":0}
+{"name":"express-docker","hostname":"Thinkpad-T570","pid":4319,"level":40,"msg":":::::: HELLO, HERE THE INSPECTOR GADGET WANTS TO TELL YOU SOME THINGS THAT HE FOUND AND MAY BE INTERESTED ::::::","time":"2019-04-24T18:27:20.879Z","v":0}
 1 1
-{"name":"express-docker","hostname":"Thinkpad-580","pid":4319,"level":50,"msg":":::::: MISSING ENVIRONMENT VARIABLE(s) EMPTY VALUE :::::: MISSING_VARIABLE_TWO ----> Value: undefined :::: ","time":"2019-04-24T18:27:20.879Z","v":0}
-{"name":"express-docker","hostname":"Thinkpad-580","pid":4319,"level":40,"msg":":::::: MISSING ENVIRONMENT VARIABLE(s) DEFAULT VALUE :::::: MISSING_VARIABLE_ONE ----> Value:  \"Default value\" :::: ","time":"2019-04-24T18:27:20.879Z","v":0}
+{"name":"express-docker","hostname":"Thinkpad-T570","pid":4319,"level":50,"msg":":::::: MISSING ENVIRONMENT VARIABLE(s) EMPTY VALUE :::::: MISSING_VARIABLE_TWO ----> Value: undefined :::: ","time":"2019-04-24T18:27:20.879Z","v":0}
+{"name":"express-docker","hostname":"Thinkpad-T570","pid":4319,"level":40,"msg":":::::: MISSING ENVIRONMENT VARIABLE(s) DEFAULT VALUE :::::: MISSING_VARIABLE_ONE ----> Value:  \"Default value\" :::: ","time":"2019-04-24T18:27:20.879Z","v":0}
 ```
 
 El inspector Gadget está trabajando correctamente ahora depende de usted corregir correctamente las variables de entorno y reiniciar la app o dejar todo como está.
