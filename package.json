@@ -1,6 +1,11 @@
 {
   "name": "gadget-inspector",
   "version": "0.1.0",
+  "author": "LuisPe <luispedrotoloy@gmail.com>",
+  "contributors": [
+    "Joaquin Alonso <alonso.jqn@gmail.com>",
+    "Marcos Gin <marcosgin291@gmail.com>"
+  ],
   "description": "Inspector of environment variables needed in the API developed with NodeJs when a Docker container is started",
   "main": "index.js",
   "scripts": {
@@ -20,7 +25,6 @@
     "NodeJs",
     "API"
   ],
-  "author": "LuisPe -luispedrotoloy@gmail.com-",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/LuisPe/gadget-inspector/issues"
